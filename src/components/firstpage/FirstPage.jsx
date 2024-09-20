@@ -7,10 +7,12 @@ import Footer from './components/footer/Footer';
 
 const FirstPage = () => {
   return (
-    <section>
+    <section className='relative'>
       <NavBar/>
-      <CategoryProduct/>
-      <div className='bg-grey  p-5 '>
+      <div className='relative  z-10'>
+        <CategoryProduct/>
+      </div>
+      <div className='bg-grey  p-5 z-0'>
         <Banner />
         <Showbar />
         <Content />

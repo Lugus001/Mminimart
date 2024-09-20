@@ -1,8 +1,12 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
+
 import { DialogContent } from '@mui/material';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useState } from 'react';
+
+
 import Logo from '/src/assets/Logo.png';
 import basket from '/src/assets/basket.png';
 
@@ -10,6 +14,7 @@ import basket from '/src/assets/basket.png';
 
 const NavBar = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const navigate = useNavigate(); // To navigate to login page
 
   const handleDialogOpen = () => {
     setIsDialogOpen(true);
@@ -17,6 +22,10 @@ const NavBar = () => {
 
   const handleDialogClose = () => {
     setIsDialogOpen(false);
+  };
+
+  const handleLoginOpen = () => {
+    navigate('/login'); // Route to login page
   };
 
   return (
@@ -79,7 +88,9 @@ const NavBar = () => {
               </Button>
             </div>
             <div className='p-5'>
-              <Button  sx={{
+              <Button 
+              onClick={handleLoginOpen} 
+              sx={{
                 width:'8rem',
                 border: '1px none ',
                 borderRadius: '1rem',
@@ -93,12 +104,7 @@ const NavBar = () => {
             </div>
           </div>
           
-         
-
-  
         
-        
-          
       </Dialog>
      
     </>

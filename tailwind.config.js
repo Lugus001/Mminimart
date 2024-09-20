@@ -26,7 +26,7 @@ export default {
         prompt: ['Prompt', 'sans-serif'],
       },
       screens: {
-        'phone': '375px',
+        'phone': '300px',
         
       }
   },
