@@ -5,21 +5,26 @@ import LoginPage from "./components/login/LoginPage";
 import HomePage from "./components/HomePage/HomePage";
 import Basket from "../src/components/HomePage/components/Basket";
 import PersonInform from '../src/components/HomePage/components/Navlog/user/PersonInform'
+import { PrimeReactProvider } from 'primereact/api';
+
 // Main App Component
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-      <Route path="/" element={<FirstPage />} />
-      <Route path="/Login" element={<LoginPage />} />
-      <Route path="/HomePage" element={<HomePage />} />
-      <Route path="/Basket" element={<Basket />} />
-      <Route path="/PersonInform" element={<PersonInform />} />
+      <PrimeReactProvider>
 
-
+        <Routes>
+        <Route path="/" element={<FirstPage />} />
+        <Route path="/Login" element={<LoginPage />} />
+        <Route path="/HomePage" element={<HomePage />} />
+        <Route path="/Basket" element={<Basket />} />
+        <Route path="/PersonInform" element={<PersonInform />} />
 
 
       </Routes>
+
+      </PrimeReactProvider>
+
     </BrowserRouter>
   );
 }

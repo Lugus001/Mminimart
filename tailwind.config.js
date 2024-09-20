@@ -18,6 +18,8 @@ export default {
       "white": '#FFFFFF',
       "orange-200":'#FFA200',
       'orange-100':"#FFBA10",
+      'green':'#22AD5C',
+
       
       
     },
