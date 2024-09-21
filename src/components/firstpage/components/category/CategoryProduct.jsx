@@ -22,7 +22,7 @@ const CategoryProduct = () => {
     handleResize(); // Check initial screen width
     window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize); // Cleanup listener on unmount
+    return () => window.removeEventListener('resize', handleResize); 
   }, []);
 
   const handleButtonClick = () => {
@@ -114,9 +114,9 @@ const CategoryProduct = () => {
 
   return (
     <div className='w-full bg-grey'>
-      <div className='w-full bg-grey border border-bgrey'>
-        <div className='flex items-center mt-3 pl-10'>
-          <p className="font-prompt">หมวดหมู่สินค้า</p>
+      <div className='w-full  border border-bgrey'>
+        <div className='flex items-center  pl-10'>
+          <p className="font-prompt p-2">หมวดหมู่สินค้า</p>
           <button type='button' onClick={handleButtonClick} className='ml-2'>
             <svg
               className="w-6 h-6 text-gray-800"
@@ -138,54 +138,50 @@ const CategoryProduct = () => {
       </div>
 
       {isContentVisible && (
-        <div className='xl:ml-[12rem] xl:mr-[70%] md:ml-[12rem] md:mr-[30%] sm:ml-[12rem] sm:mr-[20%] phone:ml-[30%] phone:mr-[2%]'>
-          <div className='w-full bg-white border border-grey-200 rounded-xl'>
+        <div className='xl:ml-[12rem] xl:mr-[50%] md:ml-[12rem] md:mr-[30%] sm:ml-[12rem] sm:mr-[20%] phone:ml-[30%] phone:mr-[2%] absolute z-10  '>
+          <div className='w-full bg-white border border-grey-200 rounded-xl '>
             <div className='pl-4 pt-3 font-prompt text-sm md:text-lg'>
               หมวดหมู่ทั้งหมด
             </div>
-            
 
             {images.map((image, index) => (
               <div key={index} className=" border-b border-grey-200">
                 <div className='p-3 flex items-center'>
                   <div className='w-[50px] min-w-[50px]'>
                     <img src={image.src} alt={image.alt} className='w-full h-auto' />
-                    </div>
-                    <div className='ml-5 flex-1'>
+                  </div>
+                  <div className='ml-5 flex-1'>
                     <p className='font-prompt'>{catatext[index]?.text}</p>
-                    </div>
-                    <button type='button' onClick={() => handleCategoryClick(index)} className='ml-2'>
-                     <svg
+                  </div>
+                  <button type='button' onClick={() => handleCategoryClick(index)} className='ml-2'>
+                    <svg
                       className="w-6 h-6 text-gray-800"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
                       viewBox="0 0 14 8"
-                      >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"
-                    />
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"
+                      />
                     </svg>
-                    </button>
-                
-                
+                  </button>
                 </div>
+
                 {activeCategoryIndex === index && (
-                  <div className='border-0 border-bgrey '>
+                  <div className='border-0'>
                     {subCategories[activeCategoryIndex]?.map((subCategory, subIndex) => (
                       <div key={subIndex} className='p-[0.5rem] border border-bgrey'>
                         <p className='font-prompt text-md text-center'>{subCategory.text}</p>
                       </div>
-
                     ))}
                   </div>
                 )}
               </div>
-              
             ))}
           </div>
         </div>

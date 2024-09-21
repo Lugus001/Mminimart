@@ -1,14 +1,35 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { DialogContent } from '@mui/material';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
 import Logo from '/src/assets/Logo.png';
 import basket from '/src/assets/basket.png';
 
 const NavBar = () => {
   const navigate = useNavigate();
   const [islistVisible, setIslistVisible] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const[isAlreadyLogOutOpen, setIsAlreadyLogOutOpen ] = useState(false);
   
   const handleButtonClick = () => {
     setIslistVisible(!islistVisible);
+  };
+
+  const handleDialogOpen = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setIsDialogOpen(false);
+  };
+
+  const alreadyLogOutOpen = () => {
+    setIsAlreadyLogOutOpen(true)
+  }
+
+  const handleLoginOpen = () => {
+    navigate('/login'); // Route to login page
   };
 
   const handleBasketOpen = () => {
@@ -19,17 +40,28 @@ const NavBar = () => {
     navigate('/HomePage');
   };
 
+  const handleDeliveryOpen = () => {
+    navigate('/CheckDelivery');
+  }
+
+  const handleOrderListOpen = () => {
+    navigate('/OrderList');
+  }
+  const handleRemainingฺOpen = () => {
+    navigate('/RemainingฺBalance');
+  }
   const handlePersonOpen = () => {
     navigate('/PersonInform');
   }
+
   return (
     <nav className="w-full h-[6rem] bg-grey border-b-bgrey">
       <div className='flex justify-between items-center w-full h-full px-4'>
         <button 
           type="button"
           onClick={handleHomeOpen} 
-          className='w-[30%] min-w-[50px] xl:w-[10%] xl:min-w-[40px]'> 
-          <img src={Logo} alt="Logo" className="h-[55%] w-auto" />
+          className='w-[30%] min-w-[50px] xl:w-[10%] xl:min-w-[30px]'> 
+          <img src={Logo} alt="Logo" className="h-[50%] w-auto" />
         </button>
           
         <div className='relative w-full max-w-md'>
@@ -49,7 +81,15 @@ const NavBar = () => {
 
         <div className='flex items-center'>
           <button type='button' onClick={handleBasketOpen}>
-            <img src={basket} alt='basket' className="w-[30%] min-w-[50px] phone:w-[80%] phone:min-w-[40px]" />
+            <img src={basket} alt='basket' className="w-[10%] min-w-[30px] phone:w-[80%] phone:min-w-[40px] xl:w-[40%]" />
+          </button>
+
+          <button type='button' onClick={handleBasketOpen} className='flex pr-5'>
+          <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" clipRule="evenodd" d="M11 18C15.8601 18 19.8 14.4183 19.8 10C19.8 5.58172 15.8601 2 11 2C6.13989 2 2.2 5.58172 2.2 10C2.2 14.4183 6.13989 18 11 18ZM11 20C17.0751 20 22 15.5228 22 10C22 4.47715 17.0751 0 11 0C4.92487 0 0 4.47715 0 10C0 15.5228 4.92487 20 11 20Z" fill="#111928"/>
+            <path d="M10.8144 16V4H11.67V16H10.8144ZM7.7 14.8V5.2H11.6126C12.3708 5.2 12.9985 5.3125 13.4959 5.5375C13.9932 5.75938 14.3653 6.06094 14.6123 6.44219C14.8592 6.82031 14.9827 7.24688 14.9827 7.72188C14.9827 8.12188 14.9009 8.45938 14.7375 8.73438C14.574 9.00625 14.3549 9.225 14.0801 9.39062C13.8089 9.55313 13.5098 9.67188 13.1829 9.74687V9.84062C13.5376 9.85625 13.8836 9.95937 14.221 10.15C14.5618 10.3375 14.8435 10.6047 15.0661 10.9516C15.2887 11.2984 15.4 11.7203 15.4 12.2172C15.4 12.7078 15.2713 13.1484 15.014 13.5391C14.7601 13.9266 14.3671 14.2344 13.835 14.4625C13.3028 14.6875 12.6229 14.8 11.7952 14.8H7.7ZM9.31199 13.5578H11.6387C12.4108 13.5578 12.9638 13.4234 13.2976 13.1547C13.6315 12.8859 13.7984 12.55 13.7984 12.1469C13.7984 11.8438 13.7132 11.5656 13.5428 11.3125C13.3724 11.0594 13.129 10.8578 12.8125 10.7078C12.4995 10.5578 12.1273 10.4828 11.6961 10.4828H9.31199V13.5578ZM9.31199 9.35312H11.4717C11.8334 9.35312 12.1586 9.29062 12.4473 9.16562C12.7394 9.04062 12.9707 8.86563 13.1411 8.64062C13.315 8.4125 13.402 8.14375 13.402 7.83438C13.402 7.4375 13.2472 7.10469 12.9377 6.83594C12.6281 6.56719 12.1534 6.43281 11.5135 6.43281H9.31199V9.35312Z" fill="#111928"/>
+          </svg>
+          <p>9999</p>
           </button>
 
           <button
@@ -90,7 +130,7 @@ const NavBar = () => {
           {islistVisible && (
             <div className='absolute z-10 top-20 right-2'>
               <div className='bg-white border border-grey-200 rounded-t-xl'>   
-                <button onClick>
+                <button onClick={handleRemainingฺOpen}>
                  <div className='p-3 w-full'>
                     <p className='font-prompt'>ยอดคงเหลือ:</p>
                     <p className='font-prompt font-bold'>฿99999</p>
@@ -108,7 +148,7 @@ const NavBar = () => {
                 <p className='font-prompt pl-1 pb-3'>ข้อมูลส่วนตัว</p>
 
                   </button>
-                  <button className='flex '>
+                  <button  onClick={handleOrderListOpen} className='flex '>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184" />
                     </svg>
@@ -116,29 +156,115 @@ const NavBar = () => {
                     <p className='font-prompt  pb-3'>รายการคำสั่งซื้อ</p>
                     
                   </button>
-                  <button className="flex">
+                  <button onClick={handleDeliveryOpen} className="flex">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M21.8137 4.125H10.095C9.61463 4.125 9.15393 4.31583 8.81425 4.6555C8.47458 4.99518 8.28375 5.45588 8.28375 5.93625V6.10125H3.22125C3.03715 6.10214 2.85692 6.15415 2.70065 6.25149C2.54438 6.34882 2.41823 6.48766 2.33625 6.6525L0.48 10.44C0.412383 10.5751 0.376473 10.7239 0.375 10.875V16.7438C0.375 16.9427 0.454018 17.1334 0.59467 17.2741C0.735322 17.4147 0.926088 17.4938 1.125 17.4938H2.14125C2.25552 18.1599 2.60161 18.7641 3.11833 19.1998C3.63506 19.6354 4.28915 19.8743 4.965 19.8743C5.64085 19.8743 6.29494 19.6354 6.81167 19.1998C7.32839 18.7641 7.67448 18.1599 7.78875 17.4938H15.6637C15.778 18.1599 16.1241 18.7641 16.6408 19.1998C17.1576 19.6354 17.8116 19.8743 18.4875 19.8743C19.1634 19.8743 19.8174 19.6354 20.3342 19.1998C20.8509 18.7641 21.197 18.1599 21.3113 17.4938H22.6125C22.8778 17.4938 23.1325 17.3897 23.3219 17.2039C23.5112 17.018 23.6201 16.7653 23.625 16.5V5.94375C23.626 5.70526 23.5799 5.46893 23.4893 5.24831C23.3987 5.02769 23.2654 4.82714 23.0972 4.65815C22.9289 4.48917 22.7289 4.35508 22.5086 4.26359C22.2884 4.17209 22.0522 4.125 21.8137 4.125ZM3.54375 7.60875H8.28375V10.065H2.33625L3.54375 7.60875ZM4.965 18.375C4.69323 18.3757 4.42735 18.2958 4.20107 18.1453C3.97479 17.9947 3.79829 17.7804 3.69395 17.5295C3.5896 17.2785 3.56211 17.0023 3.61494 16.7357C3.66778 16.4691 3.79858 16.2242 3.99075 16.032C4.18292 15.8398 4.42782 15.709 4.69441 15.6562C4.961 15.6034 5.23727 15.6309 5.48822 15.7352C5.73916 15.8395 5.95348 16.016 6.10401 16.2423C6.25453 16.4686 6.33449 16.7345 6.33375 17.0062C6.33276 17.369 6.18824 17.7165 5.93176 17.973C5.67528 18.2295 5.32771 18.374 4.965 18.375ZM4.965 14.1337C4.37961 14.135 3.80861 14.3153 3.32866 14.6505C2.84871 14.9856 2.48278 15.4596 2.28 16.0087H1.875V11.565H8.28375V15.9938H7.65C7.446 15.446 7.07955 14.9736 6.5997 14.6399C6.11985 14.3061 5.5495 14.1269 4.965 14.1262V14.1337ZM18.4837 18.375C18.212 18.3757 17.9461 18.2958 17.7198 18.1453C17.4935 17.9947 17.317 17.7804 17.2127 17.5295C17.1084 17.2785 17.0809 17.0023 17.1337 16.7357C17.1865 16.4691 17.3173 16.2242 17.5095 16.032C17.7017 15.8398 17.9466 15.709 18.2132 15.6562C18.4797 15.6034 18.756 15.6309 19.007 15.7352C19.2579 15.8395 19.4722 16.016 19.6228 16.2423C19.7733 16.4686 19.8532 16.7345 19.8525 17.0062C19.8515 17.369 19.707 17.7165 19.4505 17.973C19.194 18.2295 18.8465 18.374 18.4837 18.375ZM22.125 15.9938H21.1688C20.9656 15.4448 20.5992 14.9713 20.1188 14.6369C19.6384 14.3025 19.0672 14.1232 18.4819 14.1232C17.8966 14.1232 17.3253 14.3025 16.8449 14.6369C16.3646 14.9713 15.9982 15.4448 15.795 15.9938H9.795V5.94375C9.79597 5.8615 9.82908 5.7829 9.88724 5.72474C9.9454 5.66658 10.024 5.63347 10.1063 5.6325H21.8137C21.896 5.63347 21.9746 5.66658 22.0328 5.72474C22.0909 5.7829 22.124 5.8615 22.125 5.94375V15.9938Z" fill="#111928"/>
                   </svg>
 
               <p className='font-prompt pl-1 pb-3'>เช็คสถานะการจัดส่ง</p>
             </button>
-            <button className='flex '>
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"> 
-              <path d="M2 18C1.45 18 0.979167 17.8042 0.5875 17.4125C0.195833 17.0208 0 16.55 0 16V2C0 1.45 0.195833 0.979167 0.5875 0.5875C0.979167 0.195833 1.45 0 2 0H8C8.28333 0 8.52083 0.0958333 8.7125 0.2875C8.90417 0.479167 9 0.716667 9 1C9 1.28333 8.90417 1.52083 8.7125 1.7125C8.52083 1.90417 8.28333 2 8 2H2V16H8C8.28333 16 8.52083 16.0958 8.7125 16.2875C8.90417 16.4792 9 16.7167 9 17C9 17.2833 8.90417 17.5208 8.7125 17.7125C8.52083 17.9042 8.28333 18 8 18H2ZM14.175 10H7C6.71667 10 6.47917 9.90417 6.2875 9.7125C6.09583 9.52083 6 9.28333 6 9C6 8.71667 6.09583 8.47917 6.2875 8.2875C6.47917 8.09583 6.71667 8 7 8H14.175L12.3 6.125C12.1167 5.94167 12.025 5.71667 12.025 5.45C12.025 5.18333 12.1167 4.95 12.3 4.75C12.4833 4.55 12.7167 4.44583 13 4.4375C13.2833 4.42917 13.525 4.525 13.725 4.725L17.3 8.3C17.5 8.5 17.6 8.73333 17.6 9C17.6 9.26667 17.5 9.5 17.3 9.7L13.725 13.275C13.525 13.475 13.2875 13.5708 13.0125 13.5625C12.7375 13.5542 12.5 13.45 12.3 13.25C12.1167 13.05 12.0292 12.8125 12.0375 12.5375C12.0458 12.2625 12.1417 12.0333 12.325 11.85L14.175 10Z" fill="#111928"/>
-            </svg>
-
-
+            <button className='flex ' onClick={handleDialogOpen}>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"> 
+                  <path d="M2 18C1.45 18 0.979167 17.8042 0.5875 17.4125C0.195833 17.0208 0 16.55 0 16V2C0 1.45 0.195833 0.979167 0.5875 0.5875C0.979167 0.195833 1.45 0 2 0H8C8.28333 0 8.52083 0.0958333 8.7125 0.2875C8.90417 0.479167 9 0.716667 9 1C9 1.28333 8.90417 1.52083 8.7125 1.7125C8.52083 1.90417 8.28333 2 8 2H2V16H8C8.28333 16 8.52083 16.0958 8.7125 16.2875C8.90417 16.4792 9 16.7167 9 17C9 17.2833 8.90417 17.5208 8.7125 17.7125C8.52083 17.9042 8.28333 18 8 18H2ZM14.175 10H7C6.71667 10 6.47917 9.90417 6.2875 9.7125C6.09583 9.52083 6 9.28333 6 9C6 8.71667 6.09583 8.47917 6.2875 8.2875C6.47917 8.09583 6.71667 8 7 8H14.175L12.3 6.125C12.1167 5.94167 12.025 5.71667 12.025 5.45C12.025 5.18333 12.1167 4.95 12.3 4.75C12.4833 4.55 12.7167 4.44583 13 4.4375C13.2833 4.42917 13.525 4.525 13.725 4.725L17.3 8.3C17.5 8.5 17.6 8.73333 17.6 9C17.6 9.26667 17.5 9.5 17.3 9.7L13.725 13.275C13.525 13.475 13.2875 13.5708 13.0125 13.5625C12.7375 13.5542 12.5 13.45 12.3 13.25C12.1167 13.05 12.0292 12.8125 12.0375 12.5375C12.0458 12.2625 12.1417 12.0333 12.325 11.85L14.175 10Z" fill="#111928"/>
+                </svg>
                     <p className='font-prompt pl-1 pb-1'>ออกจากระบบ</p>
-                    
-                  </button>
+            </button>
                     
                 </div>
               </div>
             </div>
           )}
         </div>
+
+        <>
+          <Dialog open={isDialogOpen} onClose={handleDialogClose}  PaperProps={{
+          style: {
+            width: '400px',
+            maxWidth: '90%',
+            borderRadius: '12px',
+            padding: '16px',
+          },
+        }}>
+       
+          <p className='p-4 font-prompt text-xl text-center font-bold'>คุณต้องการออกจากระบบใช่หรือไม่</p>
+          <div className=' border border-yellow-100 ml-[5rem]  mr-[5rem] '></div>
+          <DialogContent>
+            <p className='font-prompt text-center text-grey-300'>M-minimart ของเรามีสินค้ามากมาย หลายแบบ </p>
+            <p className='font-prompt text-center text-grey-300'>พร้อมให้ทุกท่านได้เลือกซื้อ</p>
+          </DialogContent>
+          <div className='inline-flex items-center '>
+
+            <div className='p-5 ml-3'>
+              <Button  
+                onClick={handleDialogClose} 
+                color="primary"   
+                sx={{
+                  width:'8rem',
+                  border: '1px solid black',
+                  borderRadius: '1rem',
+                  fontFamily: 'Prompt',
+                  color: 'black', '&:hover': {
+                  backgroundColor: '#e5e5e5',},
+                  
+                }} > อยู่ในระบบต่อไป
+              </Button>
+            </div>
+            <div className='p-5'>
+              <Button 
+              onClick={alreadyLogOutOpen} 
+              sx={{
+                width:'8rem',
+                border: '1px none ',
+                borderRadius: '1rem',
+                color: 'black', 
+                fontFamily: 'Prompt',
+                backgroundColor: '#FFC51B',
+                  }}>
+                ออกจากระบบ
+              </Button>
+  
+            </div>
+          </div>
+          
+        
+      </Dialog>
+          </>
+
+          <>
+          <Dialog open={isAlreadyLogOutOpen} PaperProps={{
+            style: {
+            width: '400px',
+            maxWidth: '90%',
+            borderRadius: '12px',
+            padding: '16px',},
+            }}>
+              <p className='p-4 font-prompt text-xl text-center font-bold'>คุณได้ออกจากระบบเรียบร้อยแล้ว</p>
+              <div className='border border-yellow-100 mx-20'></div>
+              <DialogContent>
+              <p className='font-prompt text-center text-grey-300'>M-minimart ของเราขอขอบคุณทุกท่าน</p>
+              <p className='font-prompt text-center text-grey-300'>ที่เข้ามาใช้บริการของเรา</p>
+                </DialogContent>
+                <div className='flex justify-center mt-4'>
+            <Button  
+              onClick={handleLoginOpen} 
+              color="primary"   
+              sx={{
+              width: '8rem',
+              border: '1px solid black',
+              borderRadius: '1rem',
+              fontFamily: 'Prompt',
+              color: 'black',
+              '&:hover': {
+              backgroundColor: '#e5e5e5',
+              },
+              }}>
+               ปิดหน้าต่าง
+            </Button>
+            </div>
+          </Dialog>
+          </>
       </div>
+
     </nav>
   );
 };

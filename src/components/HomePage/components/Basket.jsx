@@ -1,9 +1,13 @@
 import Button from '@mui/material/Button';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import Navlog from './Navlog/Navlog';
+import Footer from '/src/components/firstpage/components/footer/Footer';
 
 const Basket = () => {
+  
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 800);
@@ -11,10 +15,13 @@ const Basket = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const handleLoginOpen = () => {
+    navigate('/HomePage'); 
+  };
   return (
     <div>
       <Navlog />
-      <div className='w-full bg-grey'>
+      <div className='w-full bg-grey pb-[15%]'>
         <div className='flex items-center pl-10 xl:pl-[10%] pt-[5%]'>
           <p className="font-prompt phone:text-2xl sm:text-3xl  md:text-4xl xl:text-4xl font-bold">ตระกร้าสินค้า</p>
         </div>
@@ -23,7 +30,7 @@ const Basket = () => {
           <>
             <div className='pb-[5%] flex items-center phone:ml- pl-8 xl:pl-[10%] pt-[5%]'>
           <label className='flex'>
-            <input type='checkbox' className=''></input>
+            <input type='checkbox' className='w-[5%]'></input>
             <p className='font-prompt phone:text-sm sm:text-xl  md:text-xl xl:text-2xl pl-[0.5rem]'>เลือกรายการสินค้าทั้งหมด(0)</p>
           </label>
           <div className='flex items-center xl:pl-[30%] md:pl-[20%] phone:ml-[4%]'>
@@ -70,7 +77,7 @@ const Basket = () => {
               </div>
               <div>
                 <Button  
-                  onClick={() => console.log("Continue shopping button clicked")} // Fix onClick handler
+                  onClick={handleLoginOpen} // Fix onClick handler
                   color="primary"   
                   sx={{
                     width: '100%',
@@ -137,7 +144,7 @@ const Basket = () => {
               </div>
               <div>
                 <Button  
-                  onClick={() => console.log("Continue shopping button clicked")} // Fix onClick handler
+                  onClick={handleLoginOpen} // Fix onClick handler
                   color="primary"   
                   sx={{
                     width: '100%',
@@ -162,19 +169,9 @@ const Basket = () => {
         )}
 
       </div>
-      {/* Footer */}
-      <div className='bg-orange w-full mt-auto'>
-        <div className='p-4 flex flex-wrap justify-center items-center space-x-5'>
-          <div><p className='font-prompt text-sm'>นโยบายการใช้คุกกี้</p></div>
-          <div><p className='font-prompt text-sm'>การตั้งค่าคุ้กกี้</p></div>
-          <div><p className='font-prompt text-sm'>ข้อกำหนดและเงื่อนไข</p></div>
-          <div><p className='font-prompt text-sm'>เข้าร่วม M-minimart เป็นผู้ขาย</p></div>
-        </div>
-        <div className='mt-8 border border-grey-200'></div>
-        <div className='flex justify-center items-center mt-8'>
-          <p className='font-prompt text-sm'>ลิขสิทธิ์ © 2024 M-minimart สงวนลิขสิทธิ์.</p>
-        </div>
-      </div>
+      
+     
+      <Footer/>
     </div>
   );
 }

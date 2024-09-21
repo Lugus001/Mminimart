@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import SideBar from '../../sideBar';
+import SideBarPhone from '../../sideBar/sideBarPhone';
+import SideBarWith from '../../sideBar/sideBarWith';
 import Navlog from '../Navlog';
-import Button from '@mui/material/Button';
+import Footer from '/src/components/firstpage/components/footer/Footer';
+
 
 
 const PersonInform = () => {
@@ -17,90 +19,157 @@ const PersonInform = () => {
   return (
     <section>
         <Navlog/>
+
+        {isMobile &&(
+          <div>
+            <div className='w-full bg-grey pb-[100%]'>
+                <div className='flex  bg-white '>
+                  <SideBarPhone/>
+                <div className='w-full  bg-white border border-bgrey p-3  '>
+                <div className='flex ' >
+                <svg width="24" height="18" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.0625 15.9375C18.6562 14.25 16.875 13.0781 14.9062 12.4687C16.875 11.4375 18.1875 9.375 18.1875 6.98437C18.1875 3.5625 15.4219 0.75 11.9531 0.75C8.48438 0.75 5.76563 3.60937 5.76563 7.03125C5.76563 9.375 7.07813 11.4375 9.04688 12.5156C7.07813 13.125 5.34375 14.2969 3.89062 15.9844C1.82812 18.4219 0.65625 21.7969 0.609375 25.5C0.609375 25.9219 0.84375 26.2969 1.17187 26.4375C2.4375 27.0937 7.03125 29.1562 11.9531 29.1562C17.2969 29.1562 21.5625 27.0469 22.7812 26.3906C23.1094 26.2031 23.3438 25.8281 23.3438 25.4531C23.2969 21.7969 22.125 18.4219 20.0625 15.9375ZM12 2.95312C14.25 2.95312 16.125 4.78125 16.125 7.07812C16.125 9.375 14.2969 11.2031 12 11.2031C9.70312 11.2031 7.875 9.375 7.875 7.07812C7.875 4.78125 9.75 2.95312 12 2.95312ZM12 27.0937C8.10937 27.0937 4.3125 25.5937 2.76563 24.8437C2.95313 21.8906 3.89063 19.2656 5.53125 17.2969C7.21875 15.2813 9.51562 14.1562 12 14.1562C14.4844 14.1562 16.7812 15.2813 18.4687 17.2969C20.1094 19.2188 21.0937 21.8906 21.2344 24.8437C19.7813 25.5937 16.2187 27.0937 12 27.0937Z" fill="#111928"/>
+                </svg>
+
+                  <p className="font-prompt phone:text-sm sm:text-xl  md:text-xl xl:text-xl  pr-[10%]  pb-2">ข้อมูลส่วนตัว</p>
+                    <div className='pl-[25%]'>
+                      <button type='button' className='flex '>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M23.3248 4.46248C23.3248 4.16248 23.2123 3.86248 22.9873 3.63748C22.5373 3.18748 22.0873 2.73748 21.6748 2.28748C21.2623 1.87498 20.8873 1.46248 20.4748 1.08748C20.2873 0.86248 20.0623 0.71248 19.7623 0.67498C19.4248 0.63748 19.1248 0.71248 18.8623 0.93748L16.3123 3.48748H3.0373C1.7623 3.48748 0.674805 4.53748 0.674805 5.84998V21C0.674805 22.275 1.7248 23.3625 3.0373 23.3625H18.2248C19.4998 23.3625 20.5873 22.3125 20.5873 21V7.68748L23.0248 5.24998C23.2123 5.02498 23.3248 4.76248 23.3248 4.46248ZM12.2998 13.5C12.2623 13.5375 12.2623 13.5375 12.2248 13.5375L9.52481 14.4375L10.4248 11.7375C10.4248 11.7 10.4623 11.7 10.4623 11.6625L17.2123 4.91248L19.0873 6.74998L12.2998 13.5ZM18.8623 21C18.8623 21.375 18.5623 21.675 18.1873 21.675H3.0373C2.6623 21.675 2.3623 21.375 2.3623 21V5.81248C2.3623 5.43748 2.6623 5.13748 3.0373 5.13748H14.5873L9.26231 10.5C9.07481 10.6875 8.88731 10.95 8.81231 11.25L7.42481 15.45C7.3123 15.75 7.38731 16.0125 7.53731 16.275C7.64981 16.425 7.87481 16.65 8.28731 16.65H8.43731L12.7498 15.225C13.0123 15.15 13.2748 14.9625 13.4623 14.775L18.8623 9.37498V21ZM20.2498 5.58748L18.3748 3.74998L19.5373 2.58748C19.8373 2.88748 21.0748 4.12498 21.3748 4.46248L20.2498 5.58748Z" fill="#111928"/>
+                        </svg>
+                          <p className='font-prompt phone:text-xs sm:text-md md:text-xl '>แก้ไขข้อมูล</p>
+                      </button>
+
+                    </div>
+                      
+                </div>
+                
+                  <div className=' p-4'>
+                    <div className='flex p-1'>
+                      <p className='font-prompt text-grey-300 phone:text-xs sm:text-md md:text-xl pr-2 '>ชื่อร้าน :</p>
+                      <p className='font-prompt phone:text-xs sm:text-md md:text-xl '>ร้านทศกัณ</p>
+                    </div>
+                    <div className='flex p-1'>
+                      <p className='font-prompt text-grey-300 phone:text-xs sm:text-md md:text-xl pr-2 '>ชื่อเจ้าของร้าน :</p>
+                      <p className='font-prompt phone:text-xs sm:text-md md:text-xl '>นายทศกัณ มานะ</p>
+                    </div>
+                    <div className='flex p-1'>
+                      <p className='font-prompt text-grey-300 phone:text-xs sm:text-md md:text-xl pr-2 '>เบอร์โทร :</p>
+                      <p className='font-prompt phone:text-xs sm:text-md md:text-xl '>067-456-7894</p>
+                    </div>
+                    <div className='flex p-1'>
+                      <p className='font-prompt text-grey-300 phone:text-xs sm:text-md md:text-xl pr-2 '>วันที่สมัคร :</p>
+                      <p className='font-prompt phone:text-xs sm:text-md md:text-xl '>16 ก.ค. 2567</p>
+                    </div>
+                   
+                  </div>
+
+                  <div>
+                    <div className='flex '>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.625 6.26245C17.625 3.14995 15.1125 0.637451 12 0.637451C8.8875 0.637451 6.375 3.14995 6.375 6.26245C6.375 9.07495 8.4375 11.4 11.1375 11.8125V22.4999C11.1375 22.9499 11.5125 23.3624 12 23.3624C12.45 23.3624 12.8625 22.9874 12.8625 22.4999V11.8125C15.525 11.4 17.625 9.07495 17.625 6.26245ZM12 10.2C9.825 10.2 8.0625 8.43745 8.0625 6.26245C8.0625 4.08745 9.825 2.32495 12 2.32495C14.175 2.32495 15.9375 4.08745 15.9375 6.26245C15.9375 8.43745 14.175 10.2 12 10.2Z" fill="#111928"/>
+                        <path d="M12.9749 3.1875C11.8124 3.1875 10.8374 4.125 10.8374 5.325C10.8374 6.525 11.7749 7.4625 12.9749 7.4625C14.1749 7.4625 15.1124 6.525 15.1124 5.325C15.1124 4.125 14.1374 3.1875 12.9749 3.1875ZM12.9749 5.7375C12.7499 5.7375 12.5249 5.55 12.5249 5.2875C12.5249 5.025 12.7124 4.8375 12.9749 4.8375C13.2374 4.8375 13.4249 5.025 13.4249 5.2875C13.4249 5.55 13.1999 5.7375 12.9749 5.7375Z" fill="#111928"/>
+                      </svg>
+                      <p className='font-prompt phone:text-xs sm:text-md md:text-xl '>ที่อยู่ร้านค้า</p>
+                    </div>
+                    <div className='ml-5 mt-1'>
+                      <p  className='font-prompt phone:text-xs sm:text-md md:text-xl '>ร้าน Tosagun 102 ม.4 ถ.รอบเมืองเชียงใหม่ 
+                    ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200</p>
+                    </div>
+                    
+                    
+
+                    
+                  </div>  
+                      
+                </div>
+                
+                </div>
+                
+              </div>
+
+          </div>
+              
+          
+
+        )}
       
   
         {!isMobile && (
-          <div className='w-full bg-grey  pr-[5%]'>
+          <div className=''>
+            <div className='w-full bg-grey  pr-[5%] pb-[24%]'>
+
             <div className='flex  pt-[2%]'>
-              <SideBar/>
-            <div className='w-full bg-white border border-bgrey rounded-2xl p-6 '>
+              <SideBarWith/>
+            <div className='w-full bg-white border border-bgrey rounded-2xl p-6  '>
               <div className='flex ' >
-                <svg width="24" height="24" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#111928"/>
-                  <path d="M11.8313 18V6H12.6091V18H11.8313ZM9 16.8V7.2H12.5569C13.2462 7.2 13.8168 7.3125 14.269 7.5375C14.7211 7.75938 15.0594 8.06094 15.2839 8.44219C15.5084 8.82031 15.6206 9.24688 15.6206 9.72187C15.6206 10.1219 15.5463 10.4594 15.3977 10.7344C15.2491 11.0062 15.0499 11.225 14.8001 11.3906C14.5535 11.5531 14.2816 11.6719 13.9844 11.7469V11.8406C14.3069 11.8562 14.6215 11.9594 14.9282 12.15C15.238 12.3375 15.4941 12.6047 15.6965 12.9516C15.8988 13.2984 16 13.7203 16 14.2172C16 14.7078 15.883 15.1484 15.6491 15.5391C15.4182 15.9266 15.061 16.2344 14.5772 16.4625C14.0935 16.6875 13.4754 16.8 12.7229 16.8H9ZM10.4654 15.5578H12.5806C13.2825 15.5578 13.7852 15.4234 14.0888 15.1547C14.3923 14.8859 14.544 14.55 14.544 14.1469C14.544 13.8438 14.4666 13.5656 14.3117 13.3125C14.1567 13.0594 13.9354 12.8578 13.6477 12.7078C13.3631 12.5578 13.0248 12.4828 12.6328 12.4828H10.4654V15.5578ZM10.4654 11.3531H12.4289C12.7577 11.3531 13.0533 11.2906 13.3157 11.1656C13.5813 11.0406 13.7916 10.8656 13.9465 10.6406C14.1046 10.4125 14.1836 10.1438 14.1836 9.83438C14.1836 9.4375 14.0429 9.10469 13.7615 8.83594C13.4801 8.56719 13.0486 8.43281 12.4668 8.43281H10.4654V11.3531Z" fill="#111928"/>
+              <svg width="25" height="25" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.0625 15.9375C18.6562 14.25 16.875 13.0781 14.9062 12.4687C16.875 11.4375 18.1875 9.375 18.1875 6.98437C18.1875 3.5625 15.4219 0.75 11.9531 0.75C8.48438 0.75 5.76563 3.60937 5.76563 7.03125C5.76563 9.375 7.07813 11.4375 9.04688 12.5156C7.07813 13.125 5.34375 14.2969 3.89062 15.9844C1.82812 18.4219 0.65625 21.7969 0.609375 25.5C0.609375 25.9219 0.84375 26.2969 1.17187 26.4375C2.4375 27.0937 7.03125 29.1562 11.9531 29.1562C17.2969 29.1562 21.5625 27.0469 22.7812 26.3906C23.1094 26.2031 23.3438 25.8281 23.3438 25.4531C23.2969 21.7969 22.125 18.4219 20.0625 15.9375ZM12 2.95312C14.25 2.95312 16.125 4.78125 16.125 7.07812C16.125 9.375 14.2969 11.2031 12 11.2031C9.70312 11.2031 7.875 9.375 7.875 7.07812C7.875 4.78125 9.75 2.95312 12 2.95312ZM12 27.0937C8.10937 27.0937 4.3125 25.5937 2.76563 24.8437C2.95313 21.8906 3.89063 19.2656 5.53125 17.2969C7.21875 15.2813 9.51562 14.1562 12 14.1562C14.4844 14.1562 16.7812 15.2813 18.4687 17.2969C20.1094 19.2188 21.0937 21.8906 21.2344 24.8437C19.7813 25.5937 16.2187 27.0937 12 27.0937Z" fill="#111928"/>
                 </svg>
-                <p className="font-prompt phone:text-sm sm:text-xl  md:text-xl xl:text-xl  pr-[45%]  pb-2">ยอดเงินคงเหลือ</p>
+                <p className="font-prompt phone:text-sm sm:text-xl  md:text-xl xl:text-xl  pr-[45%]  pb-2">ข้อมูลส่วนตัว</p>
                 <div className=' flex'>
                   <div className='pr-5'>
-                    <Button  
-                      onClick={() => console.log("Continue shopping button clicked")} // Fix onClick handler
-                      color="primary"   
-                      sx={{
-                        width: '100%',
-                        border: '1px solid black',
-                        borderRadius: '1rem',
-                        fontFamily: 'Prompt',
-                        color: 'black', 
-                        '&:hover': {
-                        backgroundColor: '#e5e5e5',
-                      },
-                     }}>
-                      ถอนเงิน
-                    </Button>
-                  </div>
-                  <div>
-                  <Button 
-                    onClick={() => console.log("Payment button clicked")} // Fix onClick handler
-                    sx={{
-                      width: '100%',
-                      border: '1px none',
-                      borderRadius: '1rem',
-                      color: 'black',
-                      fontFamily: 'Prompt',
-                      backgroundColor: '#FFC51B',
-                      }}>
-                      เติมเงิน
-                  </Button>
+                  <div >
+                      <button type='button' className='flex '>
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M23.3248 4.46248C23.3248 4.16248 23.2123 3.86248 22.9873 3.63748C22.5373 3.18748 22.0873 2.73748 21.6748 2.28748C21.2623 1.87498 20.8873 1.46248 20.4748 1.08748C20.2873 0.86248 20.0623 0.71248 19.7623 0.67498C19.4248 0.63748 19.1248 0.71248 18.8623 0.93748L16.3123 3.48748H3.0373C1.7623 3.48748 0.674805 4.53748 0.674805 5.84998V21C0.674805 22.275 1.7248 23.3625 3.0373 23.3625H18.2248C19.4998 23.3625 20.5873 22.3125 20.5873 21V7.68748L23.0248 5.24998C23.2123 5.02498 23.3248 4.76248 23.3248 4.46248ZM12.2998 13.5C12.2623 13.5375 12.2623 13.5375 12.2248 13.5375L9.52481 14.4375L10.4248 11.7375C10.4248 11.7 10.4623 11.7 10.4623 11.6625L17.2123 4.91248L19.0873 6.74998L12.2998 13.5ZM18.8623 21C18.8623 21.375 18.5623 21.675 18.1873 21.675H3.0373C2.6623 21.675 2.3623 21.375 2.3623 21V5.81248C2.3623 5.43748 2.6623 5.13748 3.0373 5.13748H14.5873L9.26231 10.5C9.07481 10.6875 8.88731 10.95 8.81231 11.25L7.42481 15.45C7.3123 15.75 7.38731 16.0125 7.53731 16.275C7.64981 16.425 7.87481 16.65 8.28731 16.65H8.43731L12.7498 15.225C13.0123 15.15 13.2748 14.9625 13.4623 14.775L18.8623 9.37498V21ZM20.2498 5.58748L18.3748 3.74998L19.5373 2.58748C19.8373 2.88748 21.0748 4.12498 21.3748 4.46248L20.2498 5.58748Z" fill="#111928"/>
+                        </svg>
+                          <p className='font-prompt  md:text-xl pl-2'>แก้ไขข้อมูล</p>
+                      </button>
+
+                    </div>
                 </div>
                 
               </div>
              
               </div>
-              
-                <div className='flex justify-between pb-3'>
-                  
-                  <p className='font-prompt md:text-2xl xl:text-2xl font-bold'>฿99999</p>
-                </div>
-                <div className='flex flex-col'>
-                  <div className="flex justify-between pb-3">
-                    <p className="font-prompt  sm:text-xl  md:text-2xl xl:text-2xl  pb-3">ช่วงเวลา</p>
-                    <p className="font-prompt  sm:text-xl  md:text-2xl xl:text-2xl  pb-3">รายการ</p>
-                    <p className="font-prompt  sm:text-xl  md:text-2xl xl:text-2xl  pb-3">ยอดรายการ</p>
-                    <p className="font-prompt  sm:text-xl  md:text-2xl xl:text-2xl  pb-3">สถานะ</p>
-                    <p className="font-prompt  sm:text-xl  md:text-2xl xl:text-2xl  pb-3">ยอดคงเหลือ</p>
+              <div className=' p-4'>
+                    <div className='flex p-1'>
+                      <p className='font-prompt text-grey-300 phone:text-xs sm:text-md md:text-xl pr-2 '>ชื่อร้าน :</p>
+                      <p className='font-prompt phone:text-xs sm:text-md md:text-xl '>ร้านทศกัณ</p>
+                    </div>
+                    <div className='flex p-1'>
+                      <p className='font-prompt text-grey-300 phone:text-xs sm:text-md md:text-xl pr-2 '>ชื่อเจ้าของร้าน :</p>
+                      <p className='font-prompt phone:text-xs sm:text-md md:text-xl '>นายทศกัณ มานะ</p>
+                    </div>
+                    <div className='flex p-1'>
+                      <p className='font-prompt text-grey-300 phone:text-xs sm:text-md md:text-xl pr-2 '>เบอร์โทร :</p>
+                      <p className='font-prompt phone:text-xs sm:text-md md:text-xl '>067-456-7894</p>
+                    </div>
+                    <div className='flex p-1'>
+                      <p className='font-prompt text-grey-300 phone:text-xs sm:text-md md:text-xl pr-2 '>วันที่สมัคร :</p>
+                      <p className='font-prompt phone:text-xs sm:text-md md:text-xl '>16 ก.ค. 2567</p>
+                    </div>
+                   
                   </div>
-                  <div className='border border-bgrey'></div>
-                </div>
-                <div className='flex flex-col'>
-                  <div className="flex justify-between pb-3 p-1">
-                    <p  className="font-prompt   md:text-md xl:text-md  pb-3">25 กค 2567</p>
-                    <p  className="font-prompt   md:text-md xl:text-md  pb-3">เติมเงินเข้าบัญชี</p>
-                    <p  className="font-prompt   md:text-md xl:text-md  pb-3">+ ฿88</p>                
-                    <Button  className='bg-green rounded-2xl ' >Success</Button>    
-                    <p  className="font-prompt   md:text-md xl:text-md  pb-3">฿99999</p>
-
-                  </div>
-                </div>  
-                    
+                  <div className='flex '>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.625 6.26245C17.625 3.14995 15.1125 0.637451 12 0.637451C8.8875 0.637451 6.375 3.14995 6.375 6.26245C6.375 9.07495 8.4375 11.4 11.1375 11.8125V22.4999C11.1375 22.9499 11.5125 23.3624 12 23.3624C12.45 23.3624 12.8625 22.9874 12.8625 22.4999V11.8125C15.525 11.4 17.625 9.07495 17.625 6.26245ZM12 10.2C9.825 10.2 8.0625 8.43745 8.0625 6.26245C8.0625 4.08745 9.825 2.32495 12 2.32495C14.175 2.32495 15.9375 4.08745 15.9375 6.26245C15.9375 8.43745 14.175 10.2 12 10.2Z" fill="#111928"/>
+                        <path d="M12.9749 3.1875C11.8124 3.1875 10.8374 4.125 10.8374 5.325C10.8374 6.525 11.7749 7.4625 12.9749 7.4625C14.1749 7.4625 15.1124 6.525 15.1124 5.325C15.1124 4.125 14.1374 3.1875 12.9749 3.1875ZM12.9749 5.7375C12.7499 5.7375 12.5249 5.55 12.5249 5.2875C12.5249 5.025 12.7124 4.8375 12.9749 4.8375C13.2374 4.8375 13.4249 5.025 13.4249 5.2875C13.4249 5.55 13.1999 5.7375 12.9749 5.7375Z" fill="#111928"/>
+                      </svg>
+                      <p className='font-prompt phone:text-xs sm:text-md md:text-xl '>ที่อยู่ร้านค้า</p>
+                    </div>
+                    <div className='ml-5 mt-1'>
+                      <p  className='font-prompt phone:text-xs sm:text-md md:text-xl '>ร้าน Tosagun 102 ม.4 ถ.รอบเมืองเชียงใหม่ 
+                    ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200</p>
+                    </div>
               </div>
+              
             </div>
+           
+            </div>
+          
           </div>
+          
+         
+          
+         
           
            
        
          
         )}
-     
+       <Footer/>
     </section>
   )
 }

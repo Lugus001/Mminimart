@@ -6,7 +6,7 @@ import p3 from '/src/assets/p3.png'
 import p4 from '/src/assets/p4.png'
 import basket from '/src/assets/basket.png'
 
-const Content = () => {
+const ContentBestSeller = () => {
     const [index, setIndex] = useState(0);
     const [quantities, setQuantities] = useState([0, 0, 0, 0]);
 
@@ -59,16 +59,16 @@ const Content = () => {
 
     return (
         <div className="w-full h-full bg-grey   border-b-bgrey">
-            <div className="mb-2">
-                <p className="font-prompt text-sm">สินค้าพิเศษสำหรับคุณ</p>
+            <div className="mb-3">
+                <p className="font-prompt text-sm">สินค้าขายดี</p>
             </div>
 
             <div className="inline-flex items-center space-x-10">
                 <p className="font-prompt text-sm sm:text-lg md:text-x">
-                    คัดสรรมาเพื่อตอบโจทย์ 
+                    คุ้มเกินคุ้ม 
                     <span className="font-prompt text-sm sm:text-lg md:text-x text-orange ml-auto">
-                        "ทุกความต้องการ"
-                    </span>ของคุณ
+                        "สินค้าขายดี"
+                    </span>ราคาพิเศษ
                 </p>
             </div>
 
@@ -158,8 +158,9 @@ const Content = () => {
 
                
             </div>
+            
         </div>
     );
 }
 
-export default Content;
+export default ContentBestSeller;

@@ -4,18 +4,27 @@ import Content from '../firstpage/components/content/Content';
 import Footer from '../firstpage/components/footer/Footer';
 import Showbar from '../firstpage/components/showBar/Showbar';
 import Navlog from './components/Navlog/Navlog';
+import ContentBestSeller from '/src/components/firstpage/components/content/ContentBestSeller'
 
 const FirstPage = () => {
   return (
-    <section className='relative'>
+    <section className='relative z-0'>
       <Navlog/>
-      <div className='z-10'>
-        <CategoryProduct/>
-      </div>
-      <div className='bg-grey  p-5 z-0'>
+      <CategoryProduct/>
+      
+      <div className='bg-grey  p-5 z-10'>
         <Banner />
+       
+        
+      <div className='p-1'>
         <Showbar />
-        <Content />
+        <div className= 'pb-[2rem] pt-[2rem]'>
+          <Content />
+        </div>
+        <div className= 'pb-[2rem]'></div>
+          <ContentBestSeller/>
+
+      </div>
        
         
 
