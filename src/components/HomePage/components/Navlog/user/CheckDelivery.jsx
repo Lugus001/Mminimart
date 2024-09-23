@@ -42,10 +42,7 @@ const OrderList = () => {
 
               <div className='flex flex-col'>
                 <div className="flex overflow-x-auto whitespace-nowrap space-x-5 pb-2">
-                  <button type='button' onClick={() => handleFilterChange('all')} className={`font-prompt phone:text-xs sm:text-xs md:text-2xl ${filter === 'all' ? 'border-b-2 border-orange' : ''}`}
-                  >
-                    <p className="font-prompt phone:text-xs sm:text-xs md:text-2xl">ที่ต้องชำระเงิน</p>
-                  </button>
+                
                   <button type='button' onClick={() => handleFilterChange('preparing')} className={`font-prompt phone:text-xs sm:text-xs md:text-2xl ${filter === 'preparing' ? 'border-b-2 border-orange' : ''}`}>
                     <p className="font-prompt phone:text-xs sm:text-md md:text-2xl">กำลังเตรียมพัสดุ</p>
                   </button>
@@ -94,9 +91,7 @@ const OrderList = () => {
 
                 <div className='flex flex-col'>
                   <div className="flex  whitespace-nowrap space-x-20 pb-2">
-                    <button type='button' onClick={() => handleFilterChange('all')}className={`font-prompt phone:text-xs sm:text-xs md:text-2xl ${filter === 'all' ? 'border-b-4 border-orange' : ''}`}>
-                      <p className="font-prompt phone:text-xs sm:text-xs md:text-2xl">ที่ต้องชำระเงิน</p>
-                    </button>
+                   
                     <button type='button' onClick={() => handleFilterChange('preparing')} className={`font-prompt phone:text-xs sm:text-xs md:text-2xl ${filter === 'preparing' ? 'border-b-4 border-orange' : ''}`}>
                       <p className="font-prompt phone:text-xs sm:text-md md:text-2xl">กำลังเตรียมพัสดุ</p>
                     </button>

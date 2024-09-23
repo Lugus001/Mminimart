@@ -75,15 +75,12 @@ const LoginPage = () => {
               </div>
             </div>
 
+
+ 
             {!isMobile && (
               <div className="relative w-full flex-1">
                 <img src={girl3} alt="Girl" className="pt-8 w-full h-full object-cover" />
-                <button type='button' onClick={() => { /* Handle click here */ }}>
-                  <div className='absolute top-2/3 left-3/4 transform -translate-x-1/2 -translate-y-1/2 flex rounded-xl border border-white bg-white w-[30%] h-[14%] p-2'>
-                    <img src={message} alt="Message" className='w-[40%]' />
-                    <p className='font-prompt mt-2 text-sm'>ติดต่อเรา</p>
-                  </div>
-                </button>
+                 
               </div>
             )}
           </div>

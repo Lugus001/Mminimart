@@ -1,32 +1,31 @@
-import React, { useState } from 'react';
-import cloth from '/src/assets/cloth.png';
-import cosmetic from '/src/assets/cosmetic.png';
-import food from '/src/assets/food.png';
-import tooth from '/src/assets/tooth.png';
-import plug from '/src/assets/plug.png';
-import workout from '/src/assets/workout.png';
-import kid from '/src/assets/kid.png';
-import drug from '/src/assets/drug.png';
-import other from '/src/assets/other.png';
+import React, { useState } from "react";
+import cloth from "/src/assets/cloth.png";
+import cosmetic from "/src/assets/cosmetic.png";
+import food from "/src/assets/food.png";
+import tooth from "/src/assets/tooth.png";
+import plug from "/src/assets/plug.png";
+import workout from "/src/assets/workout.png";
+import kid from "/src/assets/kid.png";
+import drug from "/src/assets/drug.png";
+import other from "/src/assets/other.png";
 
 const ShowBar = () => {
   const [index, setIndex] = useState(0);
 
   const images = [
-    { src: food, alt: 'food' },
-    { src: cosmetic, alt: 'cosmetic' },
-    { src: tooth, alt: 'tooth' },
-    { src: cloth, alt: 'cloth' },
-    { src: plug, alt: 'plug' },
-    { src: workout, alt: 'workout' },
-    { src: kid, alt: 'kid' },
-    { src: drug, alt: 'drug' },
-    { src: other, alt: 'other' },
-
+    { src: food, alt: "food", buttonText: "Food" },
+    { src: cosmetic, alt: "cosmetic", buttonText: "Cosmetic" },
+    { src: tooth, alt: "tooth", buttonText: "Tooth" },
+    { src: cloth, alt: "cloth", buttonText: "Cloth" },
+    { src: plug, alt: "plug", buttonText: "Plug" },
+    { src: workout, alt: "workout", buttonText: "Workout" },
+    { src: kid, alt: "kid", buttonText: "Kid" },
+    { src: drug, alt: "drug", buttonText: "Drug" },
+    { src: other, alt: "other", buttonText: "Other" },
   ];
 
   const length = images.length;
-  const itemsPerPage = 4; // Show 4 images at a time
+  const itemsPerPage = 4;
 
   const handlePrevious = () => {
     setIndex((prevIndex) => (prevIndex - itemsPerPage + length) % length);
@@ -36,8 +35,14 @@ const ShowBar = () => {
     setIndex((prevIndex) => (prevIndex + itemsPerPage) % length);
   };
 
-  // Get the images to display based on the current index
   const imagesToShow = images.slice(index, index + itemsPerPage);
+
+
+
+  const handleClick = (imageAlt) => {
+    console.log(`Clicked on ${imageAlt}`);
+    // Add further actions here when an image button is clicked
+  };
 
   return (
     <div className="w-full h-full bg-grey border-b-bgrey">
@@ -80,8 +85,21 @@ const ShowBar = () => {
       {/* Responsive Image Grid */}
       <div className="grid grid-cols-4 gap-4 pt-4 pb-4">
         {imagesToShow.map((image, idx) => (
-          <div key={idx} className="w-full">
-            <img src={image.src} alt={image.alt} className="w-full" />
+          <div
+            key={idx}
+            className="w-full h-40 flex justify-center items-center"
+          >
+            {/* Image as a button */}
+            <button
+              onClick={() => handleClick(image.alt)}
+              className="w-full h-full"
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover"
+              />
+            </button>
           </div>
         ))}
       </div>

@@ -1,21 +1,29 @@
-import Button from '@mui/material/Button';
 import React, { useEffect, useState } from 'react';
-import SideBarWith from '../../sideBar/sideBarWith';
-import SideBarPhone from '../../sideBar/sideBarPhone';
-import Navlog from '../Navlog';
+import Button from '@mui/material/Button';
+
+import SideBarWith from '../../../sideBar/sideBarWith';
+import SideBarPhone from '../../../sideBar/sideBarPhone';
+import Navlog from '../../Navlog';
 import Footer from '/src/components/firstpage/components/footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 
-const remainingฺBalance = () => {
+const RemainingฺBalance = () => {
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
+    
     const handleResize = () => setIsMobile(window.innerWidth <= 800);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+
+  const handleTopUpOpen = () => {
+    navigate('/TopUp'); 
+  };
   return (
     <section>
         <Navlog/>
@@ -206,4 +214,4 @@ const remainingฺBalance = () => {
   )
 }
 
-export default remainingฺBalance
+export default RemainingฺBalance;
