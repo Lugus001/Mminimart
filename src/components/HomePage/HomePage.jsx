@@ -1,13 +1,13 @@
 import Banner from '../firstpage/components/banner/Banner';
 import CategoryProduct from '../firstpage/components/category/CategoryProduct';
-import Content from '../firstpage/components/content/Content';
 import Footer from '../firstpage/components/footer/Footer';
 import Showbar from '../firstpage/components/showBar/Showbar';
 import Navlog from './components/Navlog/Navlog';
-import ContentBestSeller from '/src/components/firstpage/components/content/ContentBestSeller'
-
-const FirstPage = () => {
+import BasketCard from './components/ฺbasket/BasketCard';
+import { CartProvider } from './components/ฺbasket/context/CartContext';
+const HomePage = () => {
   return (
+    <CartProvider>
     <section className='relative z-0'>
       <Navlog/>
       <CategoryProduct/>
@@ -18,11 +18,10 @@ const FirstPage = () => {
         
       <div className='p-1'>
         <Showbar />
-        <div className= 'pb-[2rem] pt-[2rem]'>
-          <Content />
-        </div>
+        <div className='pb-[2rem] pt-[2rem]'>
+        <BasketCard/>
+          </div>
         <div className= 'pb-[2rem]'></div>
-          <ContentBestSeller/>
 
       </div>
        
@@ -35,7 +34,9 @@ const FirstPage = () => {
 
       </div>
     </section>
+    </CartProvider>
+
   )
 }
 
-export default FirstPage
+export default HomePage

@@ -29,7 +29,7 @@ const NavBar = () => {
   }
 
   const handleLoginOpen = () => {
-    navigate('/login'); // Route to login page
+    navigate('/login'); 
   };
 
   const handleBasketOpen = () => {

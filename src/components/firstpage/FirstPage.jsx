@@ -3,7 +3,7 @@ import CategoryProduct from './components/category/CategoryProduct';
 import NavBar from './components/navbar/NavBar';
 import Showbar from './components/showBar/Showbar';
 import Footer from './components/footer/Footer';
-import Content from './components/content/Content';
+import BasketCard from '../HomePage/components/ฺbasket/BasketCard';
 
 
 const FirstPage = () => {
@@ -18,7 +18,7 @@ const FirstPage = () => {
         <div className='bg-grey  p-5 z-0'>
           <Banner />
           <Showbar />
-          <Content />
+          <BasketCard />
         
 
         </div> 

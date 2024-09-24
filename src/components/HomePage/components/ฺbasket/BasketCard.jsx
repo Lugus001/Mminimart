@@ -1,33 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useCart } from "./context/CartContext"; 
 import basket from "/src/assets/basket.png";
-import p1 from "/src/assets/p1.png";
-import p2 from "/src/assets/p2.png";
-import p3 from "/src/assets/p3.png";
-import p4 from "/src/assets/p4.png";
+import basketData from "./context/BasketData";
 
-const Content = () => {
+function BasketCard() {
+  const { addToCart } = useCart();
   const [index, setIndex] = useState(0);
   const [quantities, setQuantities] = useState([0, 0, 0, 0]);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 450);
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 450);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  
+  
 
-  const images = [
-    { src: p1, alt: "Special product1" },
-    { src: p2, alt: "Special product2" },
-    { src: p3, alt: "Special product3" },
-    { src: p4, alt: "Special product4" },
-  ];
-
-  const length = images.length;
-  const itemsPerPage = 4; // Show only 4 images at a time
-
-  // Get the current set of images to show
-  const imagesToShow = images.slice(index, index + itemsPerPage);
+  const length = basketData.length;
+  const itemsPerPage = 4;
+  const imagesToShow = basketData.slice(index, index + itemsPerPage);
 
   const handlePrevious = () => {
     setIndex((prevIndex) => (prevIndex - itemsPerPage + length) % length);
@@ -62,12 +50,15 @@ const Content = () => {
     );
   };
 
-  const handleAddToBasket = (productIndex) => {
-    console.log(
-      `Adding product ${productIndex} with quantity ${quantities[productIndex]} to the basket`
-    );
-    // Implement basket logic here
+  const handleAddToCartClick = (item) => {
+    addToCart(item, quantities[item.id]);
   };
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 450);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="w-full h-full bg-grey border-b-bgrey">
@@ -76,16 +67,13 @@ const Content = () => {
       </div>
 
       <div className="inline-flex items-center space-x-10">
-        {" "}
         <p className="font-prompt text-sm sm:text-lg md:text-x">
-          {" "}
-          คุ้มเกินคุ้ม{" "}
+          คัดสรรมาเพื่อตอบโจทย์
           <span className="font-prompt text-sm sm:text-lg md:text-x text-orange ml-auto">
-            {" "}
-            "สินค้าขายดี"{" "}
+            "ทุกความต้องการ"
           </span>
-          ราคาพิเศษ{" "}
-        </p>{" "}
+          ของคุณ
+        </p>
       </div>
 
       <div className="flex justify-end items-center h-full pr-1 pt-5 space-x-2">
@@ -125,81 +113,65 @@ const Content = () => {
       </div>
 
       <div className="flex justify-center space-x-1 overflow-hidden w-full">
-        {imagesToShow.map((image, idx) => (
+        {imagesToShow.map((item, idx) => (
           <div key={idx} className="flex-shrink-0 w-1/4">
             <img
-              src={image.src}
-              alt={image.alt}
+              src={item.imgSrc}
               className="w-full object-cover border-b-2 border-bgrey"
+              alt={item.name}
             />
             <div className="bg-white p-5">
               <p className="font-prompt text-sm sm:text-lg md:text-x phone:text-xs">
-                น้ำยาล้างจาน ซันไลเลม่อน แบบถุง 500 มล.
+                {item.name}
               </p>
               <div className="text-right">
                 <p className="text-sm sm:text-lg md:text-xl font-bold">
-                  ฿99.00
+                  ฿{item.actual_price.toFixed(2)}
                 </p>
               </div>
-
               <div>
-                <div className="flex flex-row  items-center  ">
-                  <div className="flex items-center ">
-                    <div></div>
-                    <button
-                      type="button"
-                      onClick={() => handleDecrement(idx)}
-                      aria-label="Decrement quantity"
-                      className="bg-white border border-grey-200 rounded-s-lg  w-full  focus:outline-none"
-                    >
-                      -
-                    </button>
-                    <input
-                      type="text"
-                      value={quantities[idx]}
-                      onChange={(e) => handleInputChange(e, idx)}
-                      className="bg-white border border-grey-200  text-center text-black text-sm block w-full py-0.5 "
+                <div className="flex flex-row items-center">
+                  <button
+                    type="button"
+                    onClick={() => handleDecrement(idx)}
+                    aria-label="Decrement quantity"
+                    className="bg-white border border-grey-200 rounded-l-lg w-full focus:outline-none"
+                  >
+                    -
+                  </button>
+                  <input
+                    type="text"
+                    value={quantities[idx]}
+                    onChange={(e) => handleInputChange(e, idx)}
+                    className="bg-white border border-grey-200 text-center text-black text-sm block w-full py-0.5"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => handleIncrement(idx)}
+                    aria-label="Increment quantity"
+                    className="bg-white border border-grey-200 rounded-r-lg w-full focus:outline-none"
+                  >
+                    +
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleAddToCartClick(item)}
+                    className="ml-2"
+                  >
+                    <img
+                      src={basket}
+                      alt="Add to cart"
+                      className="w-full"
                     />
-                    <button
-                      type="button"
-                      onClick={() => handleIncrement(idx)}
-                      aria-label="Increment quantity"
-                      className="bg-white border border-grey-200 rounded-e-lg  w-full  focus:outline-none"
-                    >
-                      +
-                    </button>
-
-                    {!isMobile && (
-                      <div>
-                        <img
-                          src={basket}
-                          alt="basket"
-                          className="w-full "
-                          type="button"
-                          onClick={() => handleAddToBasket(idx)}
-                        />
-                      </div>
-                    )}
-                  </div>
+                  </button>
                 </div>
               </div>
-              {isMobile && (
-                <div className="flex flex-col">
-                  <img
-                    src={basket}
-                    alt="basket"
-                    className="w-full "
-                    type="button"
-                    onClick={() => handleAddToBasket(idx)}
-                  />
-                </div>
-              )}
             </div>
           </div>
         ))}
       </div>
     </div>
   );
-};
+}
 
-export default Content;
+export default BasketCard;
