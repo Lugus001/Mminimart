@@ -1,0 +1,29 @@
+
+.catalog-container {
+  background-color: #EFEFEF;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5 1px;
+  border-bottom: 2px solid #ccc;
+}
+
+.text-container{
+    margin-left: 75px;
+
+}
+
+.text {
+    font-family: 'Prompt', sans-serif;
+}
+
+.pi-container {
+    margin-right: 400px;
+}
+
+.pi {
+    font-size: 25px;
+    color: black;
+}
+

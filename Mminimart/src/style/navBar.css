@@ -1,0 +1,89 @@
+
+.navBar {
+  background-color: #EFEFEF;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5 1px;
+  border-bottom: 2px solid #ccc; 
+}
+
+.navBar-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+}
+
+.search-container {
+  position: relative; 
+  width: 309px;
+}
+
+.searchBar {
+  width: 315px;
+  height: 40px;
+  padding: 0.5rem 45px 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  margin-left: 1px;
+  box-sizing: border-box; 
+  font-size: 20px;
+  font-family: 'Prompt', sans-serif;
+}
+
+.searchButton {
+  position: absolute;
+  height: 38px;
+  width: 90px;
+  left: 230px; /* Position the button inside the input on the right */
+  top: 50%;
+  transform: translateY(-50%); /* Vertically center the button */
+  background: #FFC51B;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 15px;
+  font-family: 'Prompt', sans-serif;
+}
+
+.basket-container {
+  position: relative;
+}
+
+.basket-logo {
+  width: 85px;
+  height: 85px;
+}
+
+.product-count-badge {
+  position: absolute;
+  top: 27px;
+  right: 25px;
+  background-color: orange;
+  color: white;
+  border-radius: 50%;
+  padding: 0.25rem 0.5rem;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Prompt', sans-serif;
+}
+
+.loginButton {
+  width: 88px;
+  height: 30px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-family: 'Prompt', sans-serif;
+
+}
+
+

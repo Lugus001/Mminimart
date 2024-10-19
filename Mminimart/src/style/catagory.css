@@ -1,0 +1,49 @@
+.catagory {
+    width: 281px;
+    height: 700px;
+    border: 1px solid #BDBDBD;
+    border-radius: 14px;
+    background-color: #ffffff;
+    position: absolute;
+
+}
+
+.headText-container {
+   margin: 20px 20px 3px;
+}
+
+.headText {
+    font-size: 14px;
+    font-family: 'Prompt', sans-serif;
+
+}
+
+.text {
+    font-size: 16px;
+    font-family: 'Prompt', sans-serif;
+}
+
+.main-container {
+    display: inline-flex;
+    width: 249px;
+
+    margin: 10px 20px 2px;
+    border-bottom: 2px solid #ccc; 
+}
+
+.mainText-container{    
+    margin: 10px ;
+}
+
+.logo-cata {
+    width: 46px;
+    height: 46px;
+    border-radius:15px;    
+    border: 2px solid #BDBDBD;
+    margin-bottom: 5px;
+}
+
+.rightPi-container {
+    display: inline-block;
+    vertical-align: top;
+}

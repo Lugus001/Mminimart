@@ -1,0 +1,18 @@
+.banner {
+    background-color: #EFEFEF;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5 1px;
+}
+
+.banner-container {
+    padding: 0.5rem 20px 0.5rem 2rem;
+}
+
+.logo-bn {
+    width: 535px;
+    height: 105px;
+
+}
